@@ -1,0 +1,41 @@
+$white-plain: #fff;
+$dark-plain: black;
+$links-font: 1.2rem;
+$light-pink: rgb(253, 216, 223);
+$hover-links: 2px solid $light-pink;
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 10vh;
+    position: relative;
+    .main-link {
+        margin: 6rem;
+        .logo {
+            width: 6rem;
+            font-size: 3rem;
+            border-radius: 1rem;
+        }
+    }
+    .side-links {
+        position: absolute;
+        right: 15%;
+        .link-login {
+            margin-right: 5rem;
+            text-decoration: none;
+            color: $dark-plain;
+            font-size: $links-font;
+            &:hover {
+                border-bottom: $hover-links
+            }
+        }
+        .link-checkout {
+            text-decoration: none;
+            color: $dark-plain;
+            font-size: $links-font;
+            &:hover {
+                border-bottom: $hover-links
+            }
+        }
+    }
+}

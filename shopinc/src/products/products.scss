@@ -1,0 +1,77 @@
+$light-pink: rgb(253, 216, 223);
+$dark-pink: rgb(248, 161, 177);
+.main-container {
+    min-height: 90vh;
+    background-color: $light-pink;
+    padding-top: 1rem;
+    .search-cont {
+        background-color: $dark-pink;
+        width: 75vw;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        .heading {
+            font-style: italic;
+            font-size: 2rem;
+        }
+        &>* {
+            padding: 1rem;
+        }
+        .cart {
+            position: relative;
+            cursor: pointer;
+            .cart-count {
+                position: absolute;
+                color: #fff;
+                background-color: red;
+                padding: .3rem;
+                border-radius: 4rem;
+                top: 0;
+                left: 10%;
+            }
+            .img-cart {
+                width: 2rem;
+            }
+        }
+        .search-form {
+            display: flex;
+            align-items: center;
+            .search-input {
+                width: 20vw;
+                padding: .8rem;
+                border-radius: 5rem;
+                border: none;
+                outline: none;
+                font-size: 1rem;
+            }
+            .btn-search {
+                margin-left: -2rem;
+                cursor: pointer;
+                .img-search {
+                    width: 1rem;
+                }
+            }
+        }
+    }
+    .product-cont {
+        width: 75vw;
+        margin: 1rem auto 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+        grid-column-gap: 3rem;
+        .info-filters {
+            background-color: #fff;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+            grid-gap: 1rem;
+        }
+        .all-products {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: auto;
+            grid-gap: 1rem;
+        }
+    }
+}

@@ -1,0 +1,22 @@
+.product {
+    background-color: #fff;
+    padding: .7rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: .9rem;
+    .add-to-cart-btn {
+        border: none;
+        cursor: pointer;
+        border-radius: 2rem;
+        padding: .5rem .8rem;
+        .addCart {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .img-cart {
+                width: 1.5rem;
+            }
+        }
+    }
+}
