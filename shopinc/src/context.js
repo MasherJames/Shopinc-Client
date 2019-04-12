@@ -1,5 +1,5 @@
-import React from "react";
-import { createContext } from "react";
+import React, { createContext, useReducer } from "react";
+import AddToCartReducer from "./reducers/productCartReducers";
 import Shoe from "./assets/img/shoe1.png";
 import Jacket1 from "./assets/img/jacket1.png";
 import Jacket2 from "./assets/img/jacket2.png";
@@ -16,6 +16,15 @@ import Sweater5 from "./assets/img/sweater5.png";
 export const AppContext = createContext();
 
 export const AppState = props => {
+  const initialState = {
+    cart: [],
+    cartTotal: 0
+  };
+  const [state, dispatch] = useReducer(AddToCartReducer, initialState);
+
+  const addProductToCart = item => {
+    dispatch({ type: "ADD_ITEM_TO_CART", item });
+  };
   const products = [
     {
       name: "Khaki Suede Polish Work Boots",
@@ -115,7 +124,14 @@ export const AppState = props => {
     }
   ];
   return (
-    <AppContext.Provider value={{ products }}>
+    <AppContext.Provider
+      value={{
+        products,
+        cart: state.cart,
+        cartTotal: state.cartTotal,
+        addProductToCart: addProductToCart
+      }}
+    >
       {props.children}
     </AppContext.Provider>
   );

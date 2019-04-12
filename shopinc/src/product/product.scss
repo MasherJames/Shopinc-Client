@@ -1,15 +1,21 @@
+$dark-pink: rgb(248, 161, 177);
+$white: #fff;
 .product {
-    background-color: #fff;
+    background-color: $white;
     padding: .7rem;
     display: flex;
     align-items: center;
     flex-direction: column;
     font-size: .9rem;
     .add-to-cart-btn {
-        border: none;
+        border: 2px solid $dark-pink;
         cursor: pointer;
         border-radius: 2rem;
         padding: .5rem .8rem;
+        background-color: $white;
+        &:hover {
+            background-color: $dark-pink;
+        }
         .addCart {
             display: flex;
             justify-content: center;

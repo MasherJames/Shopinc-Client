@@ -1,0 +1,11 @@
+$light-pink: rgb(253, 216, 223);
+.cart-container {
+    height: 80vh;
+    background-color: $light-pink;
+    padding-top: 1rem;
+    .itemsInCart {
+        background-color: #fff;
+        width: 70vw;
+        margin: 0 auto;
+    }
+}

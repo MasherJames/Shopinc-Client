@@ -20,7 +20,6 @@ $dark-pink: rgb(248, 161, 177);
         }
         .cart {
             position: relative;
-            cursor: pointer;
             .cart-count {
                 position: absolute;
                 color: #fff;
@@ -60,6 +59,7 @@ $dark-pink: rgb(248, 161, 177);
         display: grid;
         grid-template-columns: 1fr 4fr;
         grid-column-gap: 3rem;
+        padding-bottom: 1rem;
         .info-filters {
             background-color: #fff;
             display: grid;
