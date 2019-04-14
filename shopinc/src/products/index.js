@@ -13,7 +13,7 @@ const initialState = {
 
 const Products = () => {
   const [state, dispatch] = useReducer(ProductReducer, initialState);
-  const { products, cartTotal, cart } = useContext(AppContext);
+  const { products, cartTotal } = useContext(AppContext);
 
   useEffect(() => {
     fetchProducts();
@@ -62,7 +62,6 @@ const Products = () => {
               <Product key={index} product={product} />
             ))}
         </div>
-        <div>{typeof cart}</div>
       </div>
     </div>
   );

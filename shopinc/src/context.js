@@ -25,6 +25,10 @@ export const AppState = props => {
   const addProductToCart = item => {
     dispatch({ type: "ADD_ITEM_TO_CART", item });
   };
+
+  const removeFromCart = itemName => {
+    dispatch({ type: "REMOVE_ITEM_FROM_CART", itemName });
+  };
   const products = [
     {
       name: "Khaki Suede Polish Work Boots",
@@ -129,7 +133,8 @@ export const AppState = props => {
         products,
         cart: state.cart,
         cartTotal: state.cartTotal,
-        addProductToCart: addProductToCart
+        addProductToCart: addProductToCart,
+        removeFromCart
       }}
     >
       {props.children}
