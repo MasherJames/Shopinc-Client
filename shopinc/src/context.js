@@ -26,8 +26,8 @@ export const AppState = props => {
     dispatch({ type: "ADD_ITEM_TO_CART", item });
   };
 
-  const removeFromCart = itemName => {
-    dispatch({ type: "REMOVE_ITEM_FROM_CART", itemName });
+  const removeFromCart = name => {
+    dispatch({ type: "REMOVE_ITEM_FROM_CART", name });
   };
   const products = [
     {

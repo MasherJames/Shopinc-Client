@@ -1,5 +1,5 @@
 export default (state, action) => {
-  const { type, item } = action;
+  const { type, item, name } = action;
 
   switch (type) {
     case "ADD_ITEM_TO_CART":
@@ -21,7 +21,20 @@ export default (state, action) => {
       return { ...state, cart: [...state.cart, { ...item, count: 1 }] };
 
     case "REMOVE_ITEM_FROM_CART":
-      return { ...state };
+      state.cartTotal--;
+      const updatedCart = [...state.cart];
+      const itemIndx = state.cart.findIndex(cartItem => cartItem.name === name);
+      const itemToRemove = {
+        ...updatedCart[itemIndx]
+      };
+      itemToRemove.count--;
+      if (itemToRemove.count <= 0) {
+        updatedCart.splice(itemIndx, 1);
+      } else {
+        updatedCart[itemIndx] = itemToRemove;
+      }
+      return { ...state, cart: updatedCart };
+
     default:
       return state;
   }
