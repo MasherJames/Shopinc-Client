@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useReducer } from "react";
+import React, { useEffect, useContext, useReducer, useState } from "react";
 import { Link } from "react-router-dom";
 import Product from "../product";
 import ProductReducer from "../reducers/productReducers";
@@ -12,6 +12,7 @@ const initialState = {
 };
 
 const Products = () => {
+  const [search, setSearch] = useState("");
   const [state, dispatch] = useReducer(ProductReducer, initialState);
   const { products, cartTotal } = useContext(AppContext);
 
@@ -23,6 +24,14 @@ const Products = () => {
     dispatch({ type: "GET_PRODUCTS", products });
   };
 
+  const handleSearch = e => {
+    setSearch(e.target.value);
+  };
+
+  const productss = state.products.filter(
+    product => product.name.toLowerCase().indexOf(search.toLowerCase()) !== -1
+  );
+
   return (
     <div className="main-container">
       <div className="search-cont">
@@ -31,8 +40,9 @@ const Products = () => {
           <input
             className="search-input"
             type="text"
-            name=""
-            id=""
+            name="search"
+            value={search}
+            onChange={handleSearch}
             placeholder="search..."
           />
           <div className="btn-search">
@@ -57,8 +67,8 @@ const Products = () => {
           </div>
         </div>
         <div className="all-products">
-          {state.products &&
-            state.products.map((product, index) => (
+          {productss &&
+            productss.map((product, index) => (
               <Product key={index} product={product} />
             ))}
         </div>
